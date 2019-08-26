@@ -1,0 +1,37 @@
+@import 'normalize-scss';
+@include normalize();
+
+.App {
+  header {
+    font-size: 64px;
+    text-align: center;
+  }
+  h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+svg {
+  height: 600px;
+  width: 700px;
+  background-color: #aaa;
+  margin: auto;
+  display: block;
+}
+._Box {
+  fill-rule: evenodd;
+  fill: #4c4;
+  stroke: black;
+  stroke-width: 2;
+}
+
+.highlight {
+  fill: none;
+}
+.red ._Column:hover .highlight {
+  fill: #faa;
+}
+.blue ._Column:hover .highlight {
+  fill: #aaf;
+}
