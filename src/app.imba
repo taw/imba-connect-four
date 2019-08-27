@@ -41,8 +41,7 @@ tag Column < svg:g
         <Piece y=5 contents=contents[5]>
 
   def onclick
-    trigger("columnclicked", x)
-
+    trigger("columnclicked", {x: x})
 
 tag Board < svg:svg
   def render
@@ -57,10 +56,15 @@ tag Board < svg:svg
 
 
 tag Status
+  prop result
+  prop turn
+
   def render
     <self>
       <h2>
-        if data == "red"
+        if @result
+          @result
+        else if @turn == "red"
           "Red turn"
         else
           "Blue turn"
@@ -68,26 +72,37 @@ tag Status
 
 tag App
   def setup
+    @result = null
     @turn = "red"
     @board = [[], [], [], [], [], [], []]
 
-  def oncolumnclicked(event, i)
+  def oncolumnclicked(event, payload)
+    let x = payload:x
     # first check if click is valid
-    if @board[i]:length >= 6
+    if @board[x]:length >= 6
       return
-    @board[i].push @turn
+    @board[x].push @turn
+
+    let draw = @board.every do |col|
+      col:length === 6
+
+    if draw
+      @result = "draw"
+      return
+
     # Now check if game ended (with win or draw)
     if @turn == "red"
       @turn = "blue"
     else
       @turn = "red"
+
     0
 
   def render
     <self.{@turn}>
       <header>
         "Connect Four"
-      <Status[@turn]>
+      <Status result=@result turn=@turn>
       <Board[@board]>
 
 Imba.mount <App>

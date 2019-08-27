@@ -21,9 +21,9 @@ svg {
 }
 ._Box {
   fill-rule: evenodd;
-  fill: #4c4;
+  fill: #383;
   stroke: black;
-  stroke-width: 2;
+  stroke-width: 0;
 }
 
 .highlight {
@@ -37,7 +37,11 @@ svg {
 }
 ._Piece circle.red {
   fill: #c44;
+  stroke: black;
+  stroke-width: 2;
 }
 ._Piece circle.blue {
   fill: #44c;
+  stroke: black;
+  stroke-width: 2;
 }
