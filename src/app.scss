@@ -19,7 +19,7 @@ svg {
   margin: auto;
   display: block;
 }
-._Box {
+.Box {
   fill-rule: evenodd;
   fill: #383;
   stroke: black;
@@ -29,18 +29,18 @@ svg {
 .highlight {
   fill: none;
 }
-.red ._Column:hover .highlight {
+.red .Column:hover .highlight {
   fill: #faa;
 }
-.blue ._Column:hover .highlight {
+.blue .Column:hover .highlight {
   fill: #aaf;
 }
-._Piece circle.red {
+.Piece circle.red {
   fill: #c44;
   stroke: black;
   stroke-width: 2;
 }
-._Piece circle.blue {
+.Piece circle.blue {
   fill: #44c;
   stroke: black;
   stroke-width: 2;
